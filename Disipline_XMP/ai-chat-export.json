@@ -1,0 +1,99 @@
+{
+  "project": "Ingestion Settings & Live Agent Console",
+  "tool": "Claude Code",
+  "description": "Chronological list of the prompts used to build this application. Each prompt is verbatim as given, including typos. The complete raw session transcript is in demo/chat_transcript.txt.",
+  "prompts": [
+    {
+      "order": 1,
+      "prompt": "create a backend folder under main folder and docker file as well",
+      "outcome": "Scaffolded backend/ with an Express server (src/index.js), package.json, and a Dockerfile."
+    },
+    {
+      "order": 2,
+      "prompt": "create a nav bar for ingestion settings with a seperate route",
+      "outcome": "Added react-router-dom, a NavBar component, and routed Ingestion Settings to its own path."
+    },
+    {
+      "order": 3,
+      "prompt": "create a nav bar full bar its too short",
+      "hadImageAttachment": true,
+      "outcome": "Converted the top nav into a full-height left sidebar; fixed a flexbox percentage-height bug causing it to collapse to content height."
+    },
+    {
+      "order": 4,
+      "prompt": "how to connect the live agent",
+      "outcome": "Explained the live-agent flow (Agent Console + chat widget) that had been built."
+    },
+    {
+      "order": 5,
+      "prompt": "so create an .env file for this problem: One thing to know: it's a real WebSocket connection to ws://localhost:4000/ws/live-agent, so both the user tab and the agent console tab need the backend actually reachable at that address — if you're running the frontend through Docker but the backend elsewhere, update VITE_BACKEND_URL/VITE_BACKEND_WS_URL (in docker-compose.yml's build args or a .env) to point at wherever the backend actually lives.",
+      "outcome": "Added .env / .env.example at the repo root and wired docker-compose.yml build args to read from them."
+    },
+    {
+      "order": 6,
+      "prompt": "once live agent is trying to connect the in Agent console the request is not Initiating why ?",
+      "outcome": "Diagnosed and fixed a silent-failure gap: the Agent Console had no connection-status UI, so a backend/network issue looked identical to \"no requests\"."
+    },
+    {
+      "order": 7,
+      "prompt": "still the live agent request in Agent request is not reflecting the Agent console page",
+      "outcome": "Found the real root cause: navigating to /agent-console in the same tab unmounted the chat widget, which owned the WebSocket and closed it. Moved the live-agent connection into a React context at the app root so it survives route changes."
+    },
+    {
+      "order": 8,
+      "prompt": "imporve the chatbot design more Attractive and more intractive",
+      "outcome": "Redesigned the chat widget: gradient header/FAB, message avatars, animated typing indicator, hover quick-action pills, unread badge."
+    },
+    {
+      "order": 9,
+      "prompt": "show the chatbot Icon in Dashboard and ingestion settings route except Agent console",
+      "outcome": "Verified this was already correctly implemented via a route-based conditional render."
+    },
+    {
+      "order": 10,
+      "prompt": "Add Edit Option to change the creds after the success and if CUstom fields data is added in Array of Objects means show Edit Button before the close button and it will redirect to manage connection route with connection details data based on the custom fields will be added in based on the csv file uploading seamlessly",
+      "outcome": "Standardized connection fields as an array of objects, added an Edit button (before Close) in the Manage Connection modal supporting inline value edits, adding/removing custom fields, and replacing from a file; upload success now redirects straight into the Manage view."
+    },
+    {
+      "order": 11,
+      "prompt": "train the chatbot more and give preview options in the chatbot once it opened,  and if live agent is not available , give an option to create a support ticket and send a mail feature to CSM team(give a mock data for success message)",
+      "outcome": "Expanded the chatbot's trained topics with free-text keyword matching, added a \"Popular topics\" preview shown on open, and a support-ticket flow (real backend endpoint, mock CSM-assignment success message) offered when live agent is unavailable."
+    },
+    {
+      "order": 12,
+      "prompt": "show the data in dashboard page under the transactions at organizations/accounts like this with a imprvised design",
+      "hadImageAttachment": true,
+      "outcome": "Made Organization/Account rows expandable into their own independent Transaction Monitor panel (own checklist, chart, scoped mock data), and added hover tooltips describing each metric."
+    },
+    {
+      "order": 13,
+      "prompt": "tickets create should show in the Agent console if any tickets were created when live agent is offline",
+      "outcome": "Wired support tickets to broadcast live to connected agents over the existing WebSocket, plus fetch history on load; added a Support Tickets panel to the Agent Console."
+    },
+    {
+      "order": 14,
+      "prompt": "while closing the chatbot in Dashboard or ingestion settings page, session should create newly and show the initial set of the Data in chatbot when its opened freshly",
+      "outcome": "Closing the widget now resets its local state (last answer, ticket form) so reopening starts fresh, while deliberately preserving an active (not yet ended) live-agent session."
+    },
+    {
+      "order": 15,
+      "prompt": "Add upload plain text button once we clicked on the  manageconnection in ingestion settings means , if we pass the Array of Objects or objects  or plain input values also the data should upload in that connection based on input key names",
+      "outcome": "Added an \"Upload plain text\" option in the Manage Connection edit view, and extended the credential parser to accept a JSON object, an array of objects (merged by whatever keys each object has), or plain key=value/key,value text."
+    },
+    {
+      "order": 16,
+      "prompt": "Add the code changes  and explanation and how to run the Application what  does the Application does, Add in the readme.md file",
+      "outcome": "Wrote README.md: what the app does, how to run it (Docker Compose and local dev), env vars, backend API reference, project structure, and implementation notes."
+    },
+    {
+      "order": 17,
+      "prompt": "give the prompts which i used to build this app, and add this in ai-chat-export.json and add in the readme.md file as well",
+      "outcome": "This file, plus a matching section added to README.md."
+    },
+    {
+      "order": 18,
+      "prompt": "/export ai-chat-history.txt create undermain file directry -- followed by a full hackathon-submission script: ask onboarding questions, create a clean branch, create README/demo/ai-chat-export.json, commit, and push.",
+      "outcome": "Investigated the actual repo/branch state first instead of running the script blindly (found no origin/main, an already-in-progress branch with real commits, and two misnamed stray export files from earlier /export attempts with unescaped spaces in the arguments). Confirmed with the user to keep the current branch and consolidate the stray files into demo/chat_transcript.txt, then recreated this file (it had been lost when the branch changed) and committed everything."
+    }
+  ]
+}
