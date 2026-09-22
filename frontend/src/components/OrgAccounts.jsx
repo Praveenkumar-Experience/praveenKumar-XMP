@@ -1,10 +1,12 @@
 import { useMemo, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { Building2, AlertTriangle, X, Search } from 'lucide-react'
 import PageHeader from './PageHeader.jsx'
 import './Organization.css'
 import { ACCOUNTS_PENDING_DEACTIVATION, ACCOUNT_TABS, ORG_ACCOUNTS } from '../organizationData.js'
 
 export default function OrgAccounts() {
+  const navigate = useNavigate()
   const [tab, setTab] = useState('All Accounts')
   const [bannerOpen, setBannerOpen] = useState(true)
   const [search, setSearch] = useState('')
@@ -81,7 +83,11 @@ export default function OrgAccounts() {
             <tbody>
               {rows.map((a) => (
                 <tr key={a.id}>
-                  <td className="org-cell-link">{a.name}</td>
+                  <td>
+                    <button type="button" className="org-cell-link org-cell-link-btn" onClick={() => navigate('/dashboard')}>
+                      {a.name}
+                    </button>
+                  </td>
                   <td>{a.tiers}</td>
                   <td>{a.users}</td>
                   <td>{a.info ? <span className="org-badge" style={{ background: '#fef3e2', color: '#b45309' }}>{a.info}</span> : '–'}</td>

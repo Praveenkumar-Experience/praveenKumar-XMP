@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom'
-import { MessageSquare } from 'lucide-react'
 import NavBar from './components/NavBar.jsx'
 import IssueBanner from './components/IssueBanner.jsx'
 import SignIn from './components/SignIn.jsx'
@@ -27,7 +26,7 @@ import OrgIndividualProfiles from './components/OrgIndividualProfiles.jsx'
 import OrgChatbotHistory from './components/OrgChatbotHistory.jsx'
 import OrgReports from './components/OrgReports.jsx'
 import OrgSettings from './components/OrgSettings.jsx'
-import ComingSoon from './components/ComingSoon.jsx'
+import SocialPosts from './components/SocialPosts.jsx'
 import { TemplatesProvider } from './templatesContext.jsx'
 
 function RequireAuth({ children }) {
@@ -62,7 +61,7 @@ function AppShell() {
           <Route path="/listings" element={<Listings />} />
           <Route path="/campaigns" element={<Campaigns />} />
           <Route path="/transaction-monitor" element={<TransactionMonitor />} />
-          <Route path="/social-posts" element={<ComingSoon icon={MessageSquare} title="Social Posts" description="A feed of everything auto-posted to your social channels is coming here." />} />
+          <Route path="/social-posts" element={<SocialPosts />} />
           <Route path="/reviews-management" element={<ReviewsManagement />} />
           <Route path="/reports" element={<Reports />} />
           <Route path="/widgets" element={<Widgets />} />
