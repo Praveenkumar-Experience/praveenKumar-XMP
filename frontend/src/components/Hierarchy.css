@@ -1,0 +1,153 @@
+.hi-page {
+  width: 100%;
+  min-height: 100%;
+  box-sizing: border-box;
+  padding: 36px 44px 60px;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  color: #111827;
+  background: #f9fafb;
+}
+
+.hi-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.hi-crumb {
+  border: none;
+  background: none;
+  padding: 0;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #0d9488;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.hi-crumb.is-current {
+  color: #0f172a;
+  cursor: default;
+}
+
+.hi-crumb-sep {
+  color: #cbd2dc;
+}
+
+.hi-card {
+  padding: 12px;
+  border-radius: 18px;
+  border: 1px solid #e4e7ec;
+  background: #ffffff;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
+}
+
+.hi-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin: 4px 4px 10px;
+  border: none;
+  background: none;
+  color: #6b7280;
+  font-size: 12.5px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.hi-back:hover {
+  color: #0f172a;
+}
+
+.hi-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hi-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 12px 14px;
+  border: none;
+  border-radius: 12px;
+  background: none;
+  text-align: left;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.hi-row:hover {
+  background: #f9fafb;
+}
+
+.hi-row-static {
+  cursor: default;
+}
+
+.hi-row-static:hover {
+  background: none;
+}
+
+.hi-badge {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Sora', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+.hi-row-main {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+
+.hi-row-name {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.hi-row-sub {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.hi-row-chevron {
+  margin-left: auto;
+  color: #cbd2dc;
+  flex-shrink: 0;
+}
+
+.hi-role-badge {
+  margin-left: auto;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: #eef0f3;
+  color: #374151;
+  font-size: 12px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.hi-empty {
+  padding: 40px 0;
+  text-align: center;
+  color: #9ca3af;
+  font-size: 13px;
+}
